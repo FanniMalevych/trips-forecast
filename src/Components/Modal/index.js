@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { CITIES_LIST } from '../../Common/index'
+import { CITIES_LIST, YOUR_API_KEY } from '../../Common/index'
+import axios from 'axios';
 
 const Modal = ({closeModal}) => {
 
@@ -16,7 +17,13 @@ range.setDate(date.getDate() + 15)
 // console.log(range);
 
 
-startDate && endDate ? console.log(startDate.toISOString().slice(0, 10), endDate.toISOString().slice(0, 10), selectedCity) : console.log('nothing');
+if(startDate && endDate) {
+  axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${selectedCity}/${startDate.toISOString().slice(0, 10)}/${endDate.toISOString().slice(0, 10)}?unitGroup=metric&include=days&key=${YOUR_API_KEY}&contentType=json`)
+  .then(res => {
+    console.log(res.data);
+  })
+  console.log('request sent');
+} 
 
 
 return (
