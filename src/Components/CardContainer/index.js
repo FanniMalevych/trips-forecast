@@ -1,21 +1,19 @@
 import { useContext } from 'react'
 import Card from '../Card'
 import './index.css'
-import { TripContext } from '../../Context'
+import { TripsContext } from '../../Context'
 
 
 const CardsContainer = () => {
 
-const value = useContext(TripContext)
-
-console.log(value);
-
+const { trips } = useContext(TripsContext)
 
     return (
         <div className='card-container'>
-      <ul className="cards">
-        {value.map(trip => <Card city={trip.city} endDate={trip.endDate} startDate={trip.startDate} />)}
-      </ul>
+            <ul className="cards">
+        {trips.map(trip => <Card  city={trip.city}  startDate={trip.startDate} endDate={trip.endDate} />)}
+       
+            </ul>
       </div>
     )
 }

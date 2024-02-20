@@ -1,6 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useContext } from "react"
+
 
 const SearchBar = () => {
+  
     return (
 //         <div class="wrap">
 //    <div class="search">

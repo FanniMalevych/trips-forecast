@@ -1,23 +1,24 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { CITIES_LIST, YOUR_API_KEY } from '../../Common/index'
 import axios from 'axios';
+import { TestContext, TripsContext } from '../../Context';
 
 const Modal = ({closeModal}) => {
+
+const {addTripToList, trips } = useContext(TripsContext)
 
 const [date, setDate] = useState(new Date());
 const [startDate, setStartDate] = useState();
 const [endDate, setEndDate] = useState();
 const [selectedCity, setSelectedCity] = useState('')
 
-
 const range = new Date();
 range.setDate(date.getDate() + 15)
-// console.log(range);
 
 
-if(startDate && endDate) {
+if(startDate && endDate && selectedCity)  {
   axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${selectedCity}/${startDate.toISOString().slice(0, 10)}/${endDate.toISOString().slice(0, 10)}?unitGroup=metric&include=days&key=${YOUR_API_KEY}&contentType=json`)
   .then(res => {
     console.log(res.data);
@@ -25,6 +26,10 @@ if(startDate && endDate) {
   console.log('request sent');
 } 
 
+const handleSubmit = () => {
+  addTripToList({city: selectedCity, startDate: startDate.toISOString().slice(0, 10), endDate: endDate.toISOString().slice(0,10) })
+  closeModal(false)
+}
 
 return (
         <div>
@@ -64,7 +69,7 @@ return (
      </label>
     </div>
       <button onClick={() => closeModal(false)}>Cancel</button>
-      <button onClick={() => closeModal(false)}>Save</button>
+      <button onClick={handleSubmit}>Save</button>
         </div>
 
         
