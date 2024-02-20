@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useId } from "react";
 
 export const TripsContext = createContext()
 
@@ -10,7 +10,9 @@ const selectTrip = (trips, selectedTrip) => {
 
 
 export const TripsProvider = ({children}) => {
-    const [trips, setTrips] = useState([{id: 1, city: 'london', startDate: '10 oct', endDate: '12 oct', isSelected: false}, {city: 'kyiv', startDate: '2 march', endDate: '3 march'}])
+    const [trips, setTrips] = useState(
+        [{id: useId(), city: 'london', startDate: '2024-03-01', endDate: '2024-03-04', isSelected: false}, 
+        {city: 'kyiv', startDate: '2024-03-01', endDate: '2024-03-04', isSelected: true, id: useId()}])
     const addTripToList = (tripToAdd) => {
         const result = [...trips, tripToAdd]
         return setTrips(result)

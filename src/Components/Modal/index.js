@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useId, useState } from 'react';
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { CITIES_LIST, YOUR_API_KEY } from '../../Common/index'
@@ -17,17 +17,20 @@ const [selectedCity, setSelectedCity] = useState('')
 const range = new Date();
 range.setDate(date.getDate() + 15)
 
+const id = useId()
+console.log(id);
 
-if(startDate && endDate && selectedCity)  {
-  axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${selectedCity}/${startDate.toISOString().slice(0, 10)}/${endDate.toISOString().slice(0, 10)}?unitGroup=metric&include=days&key=${YOUR_API_KEY}&contentType=json`)
-  .then(res => {
-    console.log(res.data);
-  })
-  console.log('request sent');
-} 
+
+// if(startDate && endDate && selectedCity)  {
+//   axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${selectedCity}/${startDate.toISOString().slice(0, 10)}/${endDate.toISOString().slice(0, 10)}?unitGroup=metric&include=days&key=${YOUR_API_KEY}&contentType=json`)
+//   .then(res => {
+//     console.log(res.data);
+//   })
+//   console.log('request sent');
+// } 
 
 const handleSubmit = () => {
-  addTripToList({city: selectedCity, startDate: startDate.toISOString().slice(0, 10), endDate: endDate.toISOString().slice(0,10) })
+  addTripToList({city: selectedCity, startDate: startDate.toISOString().slice(0, 10), endDate: endDate.toISOString().slice(0,10), isSelected: false, id })
   closeModal(false)
 }
 

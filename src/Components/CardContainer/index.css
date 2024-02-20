@@ -11,3 +11,7 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 }
+
+.days-forecast-container{
+    display: flex;
+}
