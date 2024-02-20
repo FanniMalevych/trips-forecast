@@ -1,30 +1,21 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Modal from './Components/Modal';
 import Card from './Components/Card';
-import { TripContext } from './Context';
+import TripProvider, {TripContext} from './Context';
 import SearchBar from './Components/SearchBar';
+import CardsContainer from './Components/CardContainer';
 
 function App() {
   const [openModal, setOpenModal] = useState(false)
-
-
+  
   return (
-    <TripContext.Provider>
+    <TripProvider>
     <div className="App">
       <p>search bar</p>
       <SearchBar />
-      <div className='card-container'>
-      <ul className="cards">
-        <Card city='london'/>
-      <Card city='tokyo'/>
-      <Card city='london'/>
-      <Card city='tokyo'/>
-      <Card city='london'/>
-      <Card city='tokyo'/>
-      <Card city='london'/>
-      <Card city='kyiv'/>
-      </ul></div>
+      
+      <CardsContainer />
       
       <div>
         <div>list of trips
@@ -33,7 +24,7 @@ function App() {
        {openModal && <Modal closeModal={setOpenModal}/>}
 
     </div>
-    </TripContext.Provider>
+    </TripProvider>
   );
 }
 

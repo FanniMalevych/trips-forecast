@@ -8,10 +8,12 @@ import paris from '../../Assets/paris.jpeg'
 import stockholm from '../../Assets/stockholm.jpeg'
 
 import './index.css'
+import { useContext } from 'react'
+import { TripContext } from '../../Context'
 
 const Card = ({city, startDate, endDate}) => {
     const cities = {london, tokyo, barcelona, berlin, kyiv, milan, paris, stockholm}
-    
+
     return (
         <div className="card">
         <div className='img-container'> 
