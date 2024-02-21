@@ -19,16 +19,12 @@
 
 .img-container {
     min-height: 40%;
+    padding-bottom: 10px;
 }
 
 img {
     max-width: 100%;
-  }
-
-/* .title {
-  color: grey;
-  font-size: 18px;
-} */
+}
 
 .card {
     display: flex;
@@ -40,4 +36,8 @@ img {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
     scroll-snap-align: start;
     transition: all 0.2s;
+  }
+
+  .trip-dates {
+    color: gray;
   }

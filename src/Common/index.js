@@ -1,2 +1,2 @@
-export const YOUR_API_KEY = 'CD873TYGD8C3CK5SBJUV5AUA9'
+export const YOUR_API_KEY = 'WHR8CXQS459X2PHPT7YTPFYH5'
 export const CITIES_LIST = ['London', 'Berlin', 'Tokyo', 'Barcelona', 'Kyiv', 'Paris', 'Milan', 'Stockholm']
