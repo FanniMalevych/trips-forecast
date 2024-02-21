@@ -4,7 +4,6 @@ import './index.css'
 import { TripsContext } from '../../Context'
 import Timer from '../Countdown'
 import { Icon } from '../Icon'
-// import Test from '../Icon'
 
 const CardsContainer = () => {
 
@@ -12,7 +11,6 @@ const { trips, selectTrip } = useContext(TripsContext)
 const [daysForecast, setDaysForecast] = useState('')
 const [todayForecast, setTodayForecast] = useState('')
 const [countdownDate, setCountdownDate] = useState('')
-
 
     return (
         <>
@@ -39,7 +37,7 @@ const [countdownDate, setCountdownDate] = useState('')
       <Icon name={day.icon}/>
       </div>))}</div>
 
-      <div>TODAY max = {todayForecast.tempmax}, min = {todayForecast.tempmin} </div>
+      <div>TODAY max = {todayForecast.tempmax}, min = {todayForecast.tempmin} <Icon name={todayForecast.icon}/></div>
       <Timer date={countdownDate}/>
       </>
     )
