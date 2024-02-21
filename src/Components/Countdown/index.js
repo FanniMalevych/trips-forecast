@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 
-const Timer = (date) => {
-    const info = new Date(date)
-    console.log(info);
-    const [expiryTime, setExpiryTime] = useState("15 jul 2024 18:00:00");
+const Timer = ({date}) => {
+    const [expiryTime, setExpiryTime] = useState("");
     const [countdownTime, setCountdownTime] = useState({
       countdownDays: "",
       countdownHours: "",
       countdownMinutes: "",
       countdownSeconds: "",
     });
+    useEffect(() => {
+        setExpiryTime(new Date(date))
+    }, [date])
     const countdownTimer = () => {
       const timeInterval = setInterval(() => {
         const countdownDateTime = new Date(expiryTime).getTime();

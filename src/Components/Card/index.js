@@ -1,20 +1,21 @@
-import london from '../../Assets/london.jpeg'
-import tokyo from '../../Assets/tokyo.jpeg'
-import barcelona from '../../Assets/barcelona.jpeg'
-import berlin from '../../Assets/berlin.jpeg'
-import kyiv from '../../Assets/kyiv.jpeg'
-import milan from '../../Assets/milan.jpeg'
-import paris from '../../Assets/paris.jpeg'
-import stockholm from '../../Assets/stockholm.jpeg'
+
 
 import './index.css'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { YOUR_API_KEY } from '../../Common'
+import { TripsContext } from '../../Context'
+import useImage from '../../Common/useImg'
 
 const Card = ({id, city, startDate, endDate, getInfo, isSelected, getTodayWeather, getDate}) => {
-    const cities = {london, tokyo, barcelona, berlin, kyiv, milan, paris, stockholm}
+
     const week = ['Sunday', 'Monday', 'Tuesday']
+    const { selectTrip } = useContext(TripsContext)
+    const handleClick = () => {
+        selectTrip(id)
+    }
+
+    const {image} = useImage(city.toLowerCase())
 
     useEffect(() => {
         isSelected && axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${startDate}/${endDate}?unitGroup=metric&include=days&key=${YOUR_API_KEY}&contentType=json`)
@@ -33,9 +34,9 @@ const Card = ({id, city, startDate, endDate, getInfo, isSelected, getTodayWeathe
     const date = new Date(startDate)
    
     return (
-        <div className="card">
+        <div className="card" onClick={handleClick}>
         <div className='img-container'> 
-            <img src={cities[city.toLowerCase()]} alt={city}  />
+            <img src={image} alt={city}  />
         </div>
        
         <h1>{city.toUpperCase()}</h1>
