@@ -25,10 +25,10 @@ img {
     max-width: 100%;
   }
 
-.title {
+/* .title {
   color: grey;
   font-size: 18px;
-}
+} */
 
 .card {
     display: flex;

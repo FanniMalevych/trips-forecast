@@ -2,13 +2,6 @@ import { createContext, useState, useId } from "react";
 
 export const TripsContext = createContext()
 
-// const selectTrip = (trips, selectedTrip) => {
-//     const selected = trips.find(trip => trip.id === selectedTrip.id)
-//     const deselesct = trips.filter(trip => trip.id !== selectedTrip.id).map(trip => trip.isSelected = false);
-//     return [...deselesct, {...selected, isSelected: true}]
-// }
-
-
 export const TripsProvider = ({children}) => {
     const [trips, setTrips] = useState(
         [{id: useId(), city: 'london', startDate: '2024-03-01', endDate: '2024-03-04', isSelected: false}, 
@@ -28,7 +21,11 @@ export const TripsProvider = ({children}) => {
 
     setTrips(result)
     }
-    const value = { trips, addTripToList, selectTrip }
+    const tripsSearch = (info) => {
+        const result = trips.filter(({city}) => city.includes(info))
+        return setTrips(result)
+    }
+    const value = { trips, addTripToList, selectTrip, tripsSearch }
 
     return (
         <TripsContext.Provider value={value}>{children}</TripsContext.Provider>

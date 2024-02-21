@@ -11,7 +11,7 @@ function App() {
   
   return (
     <div className="App">
-      <p>search bar</p>
+      <p className='title'>Weather <b>forecast</b></p>
       <SearchBar />
       
       <CardsContainer />
