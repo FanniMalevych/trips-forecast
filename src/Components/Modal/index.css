@@ -1,0 +1,62 @@
+.modal-container {
+    position: fixed; 
+    z-index: 1;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: white;
+    width: 50%;
+    height: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+
+}
+
+.btn-close {
+    background-color: rgb(228, 156, 156);
+    border-radius: 20%;
+    float: right;
+    margin: 15px;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+}
+
+.select-city {
+    /* width: 90%; */
+    height: 40px;
+    margin: 10px;
+    padding: 10px;
+}
+
+/* .react-datepicker-wrapper,
+.react-datepicker__input-container, */
+.react-datepicker__input-container input {
+    /* display: block; */
+    width: 90%;
+    /* height: 40px; */
+    margin: 10px;
+    padding: 10px;
+}
+
+.error-msg {
+    font-style: italic;
+    color: red;
+    position: absolute;
+    bottom: 15%;
+    left: 10%
+}
+
+.btn-container {
+    padding: 20px;
+}
+.btn-container button {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    box-sizing: border-box;
+    width: 100px;
+}

@@ -1,0 +1,83 @@
+.card-container {
+    display: flex;
+    padding: 0 15px;
+    margin: 0 30px;
+    justify-content: space-evenly;
+}
+
+.cards {
+  display: flex;
+  /* padding: 25px 0px; */
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  margin-right: 25px;
+}
+
+.day-forecast-container{
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+    align-items: center;
+    align-self: center;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: space-around
+}
+
+.add-trip {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    /* align-self: center; */
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    border: 2px solid black;
+}
+
+.today-forecast {
+    width: 25%;
+    background-color: rgb(216, 227, 227);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px
+}   
+
+.timer-container {
+    width: 70%;
+}
+
+.add-trip-btn {
+    background-color: rgb(216, 227, 227);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    height: 10px;
+    width: 300px;
+    border: 1px solid black;
+    padding: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin-left: 50px;
+}
+
+.trip-search {
+    flex: 1;
+    border: none;
+    outline: none;
+}

@@ -4,8 +4,8 @@ export const TripsContext = createContext()
 
 export const TripsProvider = ({children}) => {
     const [trips, setTrips] = useState(
-        [{id: useId(), city: 'london', startDate: '2024-03-01', endDate: '2024-03-04', isSelected: false}, 
-        {city: 'kyiv', startDate: '2024-03-01', endDate: '2024-03-04', isSelected: true, id: useId()}])
+        [{id: useId(), city: 'london', startDate: '2024-03-01', endDate: '2024-03-04', isSelected: true}, 
+        {city: 'kyiv', startDate: '2024-03-01', endDate: '2024-03-04', isSelected: false, id: useId()}])
     const addTripToList = (tripToAdd) => {
         const result = [...trips, tripToAdd]
         return setTrips(result)
@@ -21,11 +21,7 @@ export const TripsProvider = ({children}) => {
 
     setTrips(result)
     }
-    const tripsSearch = (info) => {
-        const result = trips.filter(({city}) => city.includes(info))
-        return setTrips(result)
-    }
-    const value = { trips, addTripToList, selectTrip, tripsSearch }
+    const value = { trips, addTripToList, selectTrip }
 
     return (
         <TripsContext.Provider value={value}>{children}</TripsContext.Provider>

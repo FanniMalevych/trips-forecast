@@ -1,27 +1,12 @@
 import './App.css';
-import { useState, useContext } from 'react';
-import Modal from './Components/Modal';
-import Card from './Components/Card';
-import TripProvider, {SomeContext, TripContext} from './Context';
-import SearchBar from './Components/SearchBar';
-import CardsContainer from './Components/CardContainer';
+import TripsForecast from './Components/TripsForecast';
+
 
 function App() {
-  const [openModal, setOpenModal] = useState(false)
   
   return (
     <div className="App">
-      <p className='title'>Weather <b>forecast</b></p>
-      <SearchBar />
-      
-      <CardsContainer />
-      
-      <div>
-       
-        <div><button onClick={() => {setOpenModal(true)}}>add trip</button></div>
-       {openModal && <Modal closeModal={setOpenModal}/>}
-
-    </div>
+      <TripsForecast />
     </div>
   );
 }

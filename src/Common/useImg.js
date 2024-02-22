@@ -15,7 +15,6 @@ const useImage = (fileName, type) => {
                 } else {
                     response = await import(`../Assets/image/${fileName}.jpeg`)
                 }
-                // const response = type === 'icon' ?? await import(`../Assets/svg/${fileName}.svg`) 
                 setImage(response.default)
             } catch (err) {
                 setError(err)
