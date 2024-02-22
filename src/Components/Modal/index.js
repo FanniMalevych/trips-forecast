@@ -26,16 +26,14 @@ const handleSubmit = () => {
     setErrorMsg(true)
     return
   } else {
-    console.log('here add somthing');
     addTripToList({city: selectedCity, startDate: startDate.toISOString().slice(0, 10), endDate: endDate.toISOString().slice(0,10), isSelected: false, id })
     closeModal(false)
-    console.log(trips);
   }
   
 }
 
 return (
-  <div className='modal-container'>
+  <div className='modal-container' >
     <button className='btn-close' onClick={() => closeModal(false)}>&times;</button>
     <div className='modal-content'> 
       <p >CREATE A NEW TRIP</p>
@@ -44,7 +42,7 @@ return (
         className='select-city'               
         onChange={event => setSelectedCity(event.target.value)}
         defaultValue={selectedCity}>
-          {CITIES_LIST.map((city) => <option value={city}>{city}</option>)}
+          {CITIES_LIST.map((city) => <option key={city} value={city}>{city}</option>)}
       </select>
       <label>Start date * </label>
       <DatePicker

@@ -32,6 +32,7 @@ useEffect(() => {
 
     return (
         <>
+        <div style={openModal ? {filter : 'blur(5px)'} : {}}>
         <p className='title'>Weather <b>forecast</b></p>
         <div className="search-container">
             <svg
@@ -60,7 +61,7 @@ useEffect(() => {
         })}
             </ul>
             <div className='add-trip'><p>add a new trip</p><button className='add-trip-btn' onClick={() => {setOpenModal(true)}}>+</button></div>
-            {openModal && <Modal closeModal={setOpenModal}/>}
+            
             <div className='today-forecast'> 
                 <p>{getDayName(todayForecast.datetime)} </p>
                 <p>Today's weather</p>
@@ -79,6 +80,9 @@ useEffect(() => {
                 <p><i>{day.conditions}</i></p> 
             </div>))}
         </div>
+        
+        </div>
+        {openModal && <Modal closeModal={setOpenModal}/>}
       </>
     )
 }
